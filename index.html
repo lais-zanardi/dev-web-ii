@@ -118,5 +118,44 @@
         document.write(`Valor do frete por km: ${distancia}<br>`)
         document.write(`Total: ${total}<br>`)
     </script>
+
+    <script>
+        // Exercício 5
+        document.write('<h2> Exercício 5</h2>')
+        function valorHoraTrabalhada(turno, categoria) {
+            var salarioMin = parseFloat(prompt('Salário mínimo estadual: '))
+            var valorHora = 0
+            if (categoria == 'G') {
+                valorHora = 0.04*salarioMin
+            } else if (turno == 'N') {
+                valorHora = 0.02*salarioMin
+            } else { valorHora = 0.01*salarioMin }
+
+            return valorHora
+        }
+
+        function valorSalarioInicial(valorHora, numHoras) {
+            return valorHora * numHoras
+        }
+
+        function valorAuxilioAlimentacao(valorSalarioInicial) {
+            if (valorSalarioInicial <= 800) return valorSalarioInicial*.25
+            else if (valorSalarioInicial <= 1200) return valorSalarioInicial*.20
+            else return valorSalarioInicial*.15
+        }
+
+        var turno = prompt('Turno: ')
+        var categoria = prompt('Categoria: ')
+        var numHorasTrabalhadas = parseInt(prompt('Número de horas trabalhadas: '))
+        var valorHora = valorHoraTrabalhada(turno, categoria)
+        var salarioInicial = valorSalarioInicial(valorHora, numHorasTrabalhadas)
+        var auxilioAlimentacao = valorAuxilioAlimentacao(salarioInicial)
+
+        document.write(`Número de horas trabalhadas: ${numHorasTrabalhadas}<br>`)
+        document.write(`Valor da Hora Trabalhada: ${valorHora}<br>`)
+        document.write(`Salário inicial: ${salarioInicial}<br>`)
+        document.write(`Auxílio alimentação: ${auxilioAlimentacao}<br>`)
+        document.write(`Total: ${salarioInicial+auxilioAlimentacao}<br>`)
+    </script>
 </body>
 </html>
