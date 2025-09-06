@@ -78,7 +78,45 @@
         //Exercício 4
         document.write('<h2> Exercício 4</h2>')
         rastreamento = prompt('Deseja rastreamento? S-Sim | N-Não')
-        
+        if (rastreamento == 'S') { 
+            var taxa = 200 
+        } else { 
+            var taxa = 0 
+        }
+        var regiao = parseInt(prompt('Para qual região serão enviadas as peças? 1-Sul | 2-Sudeste | 3-Centro-oeste'))
+        var distancia = parseFloat(prompt('Qual a distância do frete? (km)'))
+        var nPecas = parseInt(prompt('Número de peças: '))
+
+        function calculaFrete(nPecas, regiao, distancia) {
+            if (regiao == 1) {
+                if (nPecas <= 1000) {
+                    valorPorPeca = 1 * nPecas
+                } else {
+                    valorPorPeca = 1 * 1000 + (nPecas-1000)*0.9
+                }
+            } else if (regiao == 2) {
+                if (nPecas <= 1000) {
+                    valorPorPeca = 1.2 * nPecas
+                } else {
+                    valorPorPeca = 1.2 * 1000 + (nPecas-1000)*0.88
+                }
+            } else {
+                if (nPecas <= 1000) {
+                    valorPorPeca = 1.3 * nPecas
+                } else {
+                    valorPorPeca = 1.3 * 1000 + (nPecas-1000)*0.87
+                }
+            }
+            return valorPorPeca
+        }
+
+        var v = calculaFrete(nPecas, regiao, distancia)
+        var total = taxa + v + distancia
+
+        document.write(`Taxa de rastreamento: ${taxa}<br>`)
+        document.write(`Valor do frente pelas peças: ${v}<br>`)
+        document.write(`Valor do frete por km: ${distancia}<br>`)
+        document.write(`Total: ${total}<br>`)
     </script>
 </body>
 </html>
