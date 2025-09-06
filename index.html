@@ -6,6 +6,79 @@
     <title>Document</title>
 </head>
 <body>
+    <h1> Lista de Exercícios 1 </h1>
+    <script> // Exercício 1
+        document.write('<h2> Exercício 1</h2>')
+        nome = prompt('Nome: ')
+        altura = prompt('Altura (cm): ')
+        peso = prompt('Peso (kg): ')
+
+        // Cálculo IMC
+        function calcularIMC(altura, peso) {
+            altura = parseFloat(altura)
+            peso = parseFloat(peso)
+            altura = altura/100
+            return peso / altura**2
+        }
+
+        // Classificação IMC
+        function classificaIMC(imc) {
+            if (imc < 16) { return 'Baixo peso muito grave' } 
+            else if (imc < 16.99) { return 'Baixo peso grave' }
+            else if (imc < 18.49) { return 'Baixo peso' }
+            else if (imc < 24.99) { return 'Peso normal' }
+            else if (imc < 29.99) { return 'Sobrepeso' }
+            else if (imc < 34.99) { return 'Obsedidade grau I' }
+            else if (imc < 39.99) { return 'Obesidade grau II' }
+            else { return 'Obesidade grau III' }
+        }
+        
+        var imc = calcularIMC(altura, peso)
+        var classificacao = classificaIMC(imc)
+        document.write(`${nome} possui índice de massa corporal igual a ${imc}, sendo classificado como ${classificacao}<br>`)
+    </script>
     
+    <script> // Exercício 2
+        document.write('<h2> Exercício 2</h2>')
+        function faixaEtaria(idade) {
+            if (idade < 15) { return 'Criança' }
+            else if (idade < 30) { return 'Jovem' }
+            else if (idade < 60) { return 'Adulto' }
+            else { return 'Idoso' }
+        }
+        idade = prompt('Idade: ')
+        document.write(`Faixa etária: ${faixaEtaria(idade)}`)
+    </script>
+
+    <script> // Exerício 3
+        document.write('<h2> Exercício 3</h2>')
+        function mediaPonderada(n1, n2, n3) {
+            return ((2*n1)+(5*n2)+(3*n3))/(2+5+3)
+        }
+
+        function classificaMedia(media) {
+            if (media < 5) return 'F'
+            else if (media < 6) return 'E'
+            else if (media < 7) return 'D'
+            else if (media < 8) return 'C'
+            else if (media < 9) return 'B'
+            else return 'A'
+        }
+
+        nota1 = prompt('Nota 1: ')
+        nota2 = prompt('Nota 2: ')
+        nota3 = prompt('Nota 3: ')
+
+        media = mediaPonderada(nota1, nota2, nota3)
+
+        document.write(`A média do aluno é ${media} e sua classificação é ${classificaMedia(media)}`)
+    </script>
+
+    <script>
+        //Exercício 4
+        document.write('<h2> Exercício 4</h2>')
+        rastreamento = prompt('Deseja rastreamento? S-Sim | N-Não')
+        
+    </script>
 </body>
 </html>
